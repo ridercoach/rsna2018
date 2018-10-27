@@ -56,11 +56,16 @@ trying out YOLO on the included sample images (or any image you want,
 really, as long as it is a JPG.)
 
 Understand that to use YOLO you must specify a neural network configuration 
-(.cfg file) and a _matching_ set of trained parameters (.weights file.) 
+(.cfg file) and a **matching** set of trained parameters (.weights file.) 
 There are lots of configurations to choose from in the "cfg" subdirectory 
-of the Darknet repository, but the weights files are _not_ included 
+of the Darknet installation, but the weights files are **not** included 
 because they are huge. You can download the one you want from the 
 second page linked above.
+
+It may be that one of the standard YOLO configurations is perfect for 
+what you are doing, but for this project I had to make some changes.
+
+First, ...
 
 ## Prepare Training Data
 
