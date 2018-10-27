@@ -49,7 +49,18 @@ so I will not include it here.
 
 ## Setting Up the Model
 
-more text here
+[This page](https://pjreddie.com/darknet/install) gives instructions for 
+installing Darknet on Linux, which is very easy.  Then, 
+[this page](https://pjreddie.com/darknet/yolo) gives instructions for 
+trying out YOLO on the included sample images (or any image you want, 
+really, as long as it is a JPG.)
+
+Understand that to use YOLO you must specify a neural network configuration 
+(.cfg file) and a _matching_ set of trained parameters (.weights file.) 
+There are lots of configurations to choose from in the "cfg" subdirectory 
+of the Darknet repository, but the weights files are _not_ included 
+because they are huge. You can download the one you want from the 
+second page linked above.
 
 ## Prepare Training Data
 
