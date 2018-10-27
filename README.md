@@ -18,6 +18,11 @@ occurred to me after the contest closed that I might have scored better
 if I had lowered the detection threshold when running the model; by 
 default, it reports only objects it is at least 25% confident about. 
 
+If you start exploring YOLO you will find that there is a huge amount 
+of information available. However, in my opinion, the best initial 
+introduction is probably [this page](https://pjreddie.com/darknet/yolo) 
+from Joseph Redmon, who is one of the creators of YOLO.
+
 I worked in Linux, but I think most of what is discussed here could be 
 done in Windows too.  In particular, 
 [this page](https://github.com/AlexeyAB/darknet) by AlexeyAB has a wealth 
