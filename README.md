@@ -108,8 +108,9 @@ the contest is closed,) I might:
 4. maybe try YOLOv3   
 
 Second, in terms of exploring YOLO beyond this particular contest, 
-I might spend more time working with Allan Zelener's YAD2K package, which 
-converts a Darknet .cfg and .weights file into a Keras/Tensorflow 
+I might spend more time working with Allan Zelener's
+[YAD2K](https://github.com/allanzelener/YAD2K) package, which 
+converts a Darknet .cfg/.weights file pair into a Keras/Tensorflow 
 model stored in an .h5 file.  I spent a lot of time on this during the 
 contest because I think Keras is pretty nice and I would like to 
 improve my knowledge of it, but I ended up not using it.
