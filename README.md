@@ -6,8 +6,10 @@ used for my entry in the competition.  It does not include the files
 that take a lot of space, such as the weights file and the full set 
 of data files. In general, the "darknet" directory pertains to the training 
 and use of the model, and the "rsna" directory pertains to the pre- and
-post-processing of the data. The Jupyter notebook in the root of the
-repository just illustrates some of the explanation given here.
+post-processing of the data. The Jupyter
+[notebook](https://github.com/ridercoach/rsna2018/blob/master/rsna2018-notes.ipynb)
+ in the root of the
+repository illustrates some of the explanation given here.
 
 I used the Darknet framework with the "regular" version of the YOLOv2
 model. I started with the yolov2.weights file and trained for 12,300 
@@ -49,21 +51,29 @@ so I will not include it here.
 
 ## Setting Up the Model
 
+### Installing and Testing Darknet
+
 [This page](https://pjreddie.com/darknet/install) gives instructions for 
 installing Darknet on Linux, which is very easy.  Then, 
 [this page](https://pjreddie.com/darknet/yolo) gives instructions for 
 trying out YOLO on the included sample images (or any image you want, 
 really, as long as it is a JPG.)
 
-Understand that to use YOLO you must specify a neural network configuration 
+Note that to use YOLO you must specify a neural network configuration 
 (.cfg file) and a **matching** set of trained parameters (.weights file.) 
+"Matching" means that the set of parameters in the .weights file is 
+compatible with the structure of the network in the .cfg file -- the 
+actual base filenames don't have to be the same, but it's helpful 
+if they indicate the pairing. 
 There are lots of configurations to choose from in the "cfg" subdirectory 
 of the Darknet installation, but the weights files are **not** included 
 because they are huge. You can download the one you want from the 
 second page linked above.
 
+### Customizing the .cfg file
+
 It may be that one of the standard YOLO configurations is perfect for 
-what you are doing, but for this project I had to make some changes.
+what you are doing, but for this project we have to make some changes.
 
 First, ...
 
