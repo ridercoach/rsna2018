@@ -18,6 +18,11 @@ occurred to me after the contest closed that I might have scored better
 if I had lowered the detection threshold when running the model; by 
 default, it reports only objects it is at least 25% confident about. 
 
+I worked in Linux, but I think most of what is discussed here could be 
+done in Windows too.  In particular, 
+[this page](https://github.com/AlexeyAB/darknet) by AlexeyAB has a wealth 
+of Darknet/YOLO how-to information for both Windows and Linux.
+
 ### Table of Contents
 
 [Exploratory Data Analysis (EDA)](#exploratory-data-analysis)   
@@ -30,10 +35,12 @@ default, it reports only objects it is at least 25% confident about.
 
 ## Exploratory Data Analysis
 
-I did a few different notebooks of EDA work, one of which I made public 
-on Kaggle [(link).](https://www.kaggle.com/ridercoach/rsna2018-ridercoach-eda-1) However, while this work was definitely worhtwhile, and a good learning 
-experience, in the end I ran out of time and did not use any of what I 
-learned from it, so I will not include it here.
+I did a few notebooks (called "kernels" on Kaggle) of
+EDA work, one of which I made public
+[(link).](https://www.kaggle.com/ridercoach/rsna2018-ridercoach-eda-1)
+However, while this work was definitely worthwhile and a good learning 
+experience, in the end I did not use any of the ideas I got from it, 
+so I will not include it here.
 
 ## Setting Up the Model
 
