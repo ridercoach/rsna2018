@@ -17,33 +17,37 @@ which took about 24 hours.  I scored .098 (top score .260).
 
 ### Table of Contents
 
-[1. Exploratory Data Analysis (EDA)](link)
+[Exploratory Data Analysis (EDA)](link)
 
-[2. Setting Up the Model](link)
+[Setting Up the Model](link)
 
-## 1. Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 
 some text here
 
-## 2. Setting Up the Model
+## Setting Up the Model
 
 more text here
 
-## 3. Prepare Training Data
+## Prepare Training Data
 
 blah blah blah
 
-## 4. Train the Model
+## Train the Model
 
 Bleep bleep
 
-## 5. Generate Predictions
+## Generate Predictions
 
 hahaha
 
-## 6. Prepare Submission
+## Prepare Submission
 
 heehee
+
+## Ideas for Future Work
+
+hohoho
 
 
 
