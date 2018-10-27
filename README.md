@@ -1,10 +1,9 @@
 # rsna2018  ** under construction **
 Notes, etc, for Kaggle RSNA Pneumonia Detection Challenge
 
-This repository contains the basic file structure and most of the files 
-used for my entry in the competition.  It does not include the files 
-that take a lot of space, such as the weights file and the full set 
-of data files. In general, the "darknet" directory pertains to the training 
+This repository contains a minimal set of files related to the 
+explanation in this README. 
+The "darknet" directory pertains to the training 
 and use of the model, and the "rsna" directory pertains to the pre- and
 post-processing of the data. The Jupyter
 [notebook](https://github.com/ridercoach/rsna2018/blob/master/rsna2018-notes.ipynb)
@@ -57,7 +56,7 @@ so I will not include it here.
 installing Darknet on Linux, which is very easy.  Then, 
 [this page](https://pjreddie.com/darknet/yolo) gives instructions for 
 trying out YOLO on the included sample images (or any image you want, 
-really, as long as it is a JPG.)
+as long as it is a JPG.)
 
 Note that to use YOLO you must specify a neural network configuration 
 (.cfg file) and a **matching** set of trained parameters (.weights file.) 
@@ -68,7 +67,8 @@ if they indicate the pairing.
 There are lots of configurations to choose from in the "cfg" subdirectory 
 of the Darknet installation, but the weights files are **not** included 
 because they are huge. You can download the one you want from the 
-second page linked above.
+second page linked above. It generally goes right in the "darknet" 
+directory, not in a subdirectory.
 
 ### Customizing the .cfg file
 
@@ -78,6 +78,23 @@ what you are doing, but for this project we have to make some changes.
 First, ...
 
 ## Prepare Training Data
+
+### Downloading the Training Data
+
+To work with Kaggle contest data on your own computer, you will 
+need the Kaggle API; [this page](https://github.com/Kaggle/kaggle-api)
+gives instructions for installing and using it.
+
+Once you have the Kaggle API working, the following command would 
+download the contest data files to your current directory (assuming 
+that (a) the contest is active, and (b) you have already entered 
+the competition on the Kaggle website and accepted the rules.)
+
+```
+kaggle competitions download rsna-pneumonia-detection-challenge
+```
+
+### Converting Training Data to YOLO Format
 
 blah blah blah
 
