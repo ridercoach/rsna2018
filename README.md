@@ -17,9 +17,8 @@ which took about 24 hours.  I scored .098 (top score .260).
 
 ### Table of Contents
 
-[Exploratory Data Analysis (EDA)](link)
-
-[Setting Up the Model](link)
+[Exploratory Data Analysis (EDA)](#Exploratory-Data-Analysis-(EDA))
+[Setting Up the Model](#setting-up-the-model)
 
 ## Exploratory Data Analysis (EDA)
 
