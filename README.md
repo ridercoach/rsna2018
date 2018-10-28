@@ -119,7 +119,7 @@ here are a few things I might work on.
 First, in terms of trying to improve my score (which is moot because 
 the contest is closed,) I might:
 
-1. try a lower detection threshold (default is 25% conf, maybe too high for a problem this difficult)   
+1. try a lower detection threshold (default is 25% confidence -- maybe too high for a problem this difficult)   
 2. try different anchor boxes (I did some EDA about this)   
 3. try training longer and with more images (I used only 2000 of the 5000+ available)   
 4. try preprocessing the images in some way   
