@@ -87,7 +87,7 @@ objects (dog, bicycle, horse, etc), and we need to detect only one
 (pneumonia). Changing this will reduce the size of the last layer of 
 the network a little, and (I think) save a little memory and training time.
 
-Two change are needed for this, both near the bottom of rsna.cfg. 
+Two changes are needed for this, both near the bottom of rsna.cfg. 
 First, in the "[region]" section, "classes=80" must be changed to 
 "classes=1". Then, in the section just above that (the last "[convolutional]" 
 layer of the network), "filters=425" must be changed to "filters=30".
@@ -109,9 +109,9 @@ just as when you initially installed Darknet.
 Note that for Darknet to use the GPU, the system must also have CUDA 
 installed. I did not have to do this myself because when I created 
 the cloud machine I used one of the "Deep Learning" AMIs, which 
-already have CUDA installed.
+already had CUDA installed.
 
-#### _Getting the Output Required for the Competition_
+#### _Producing the Output Required for the Competition_
 
 Out of the box, the Darknet framework will print to the screen the 
 class type and confidence level for each object it finds, but not 
@@ -178,12 +178,15 @@ size, with the box location changed from upper-left corner to center.
 All of this work (as well as the creation of the input files mentioned 
 in the next section) is accomplished by the `make_training_data.py` 
 script in the "rsna/data" directory. Note that if you want to use this 
-script, you will have to adjust the file paths, and maybe also the 
-train/test split fraction, etc.
+script, you will probably have to adjust the file paths,
+and you may also want to change the train/test split fraction, etc.
 
 ### Setting Up Input Files
 
-blah
+Finally, we have to tell Darknet where to look for our data. 
+[This page](https://timebutt.github.io/static/how-to-train-yolov2-to-detect-custom-objects/)
+gives more background about this, as well 
+as information about the entire process described in this README.
 
 ## Training the Model
 
