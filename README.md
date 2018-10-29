@@ -248,8 +248,8 @@ an example of the training output.
 article and this project. In the article, the author is trying to detect 
 something that has sharp edges, a uniform shape, and 5 colors, and he 
 gets down to an average error of 0.08 with only 300 training images and 
-1000 iterations. In this project, where we are trying to detect something 
-that is not only almost invisible to the untrained eye but has only one 
+1000 iterations. In this project, in which we are trying to detect something 
+that is not only almost invisible to the untrained human eye but has only one 
 channel of color information, I trained for 12,300 iterations with 2000 
 images and only got down to an error of around 1.5. However, this was 
 still enough to make the model moderately useful.**
@@ -264,7 +264,31 @@ new weights file instead of yolov2.weights, and **_do not_** use
 
 ## Generating Predictions
 
-hahaha
+### Preparing the Test Images
+
+RSNA provided a separate set of images for testing the algorithm, and 
+for which the results are submitted and scored. Just like the training 
+images, these are in DICOM files and must be extracted into JPGs. The 
+script `make_test_data.py` in the "rsna" directory will do this, as well 
+as create the list of filenames for doing batch detection with Darknet.
+
+Note that we do not have to create the TXT label files as we did for the 
+training images, because we aren't training now (and because there aren't 
+any labels to convert :)).
+
+As before, I copied the list of filenames into the "darknet/data" directory.
+
+### Running the Detection
+
+With everything set up as described above, the command line below will 
+run the batch detection.  Note that we pipe the output to a file, and it 
+is this file that is processed in the next section to create the submission 
+file. Note also that we specify the final weights file from the training 
+process.
+
+```
+./darknet detector test cfg/rsna.data cfg/rsna.cfg rsna_12300.weights < data/rsna_detect.txt > rsna_result.txt
+```
 
 ## Submitting Results
 
