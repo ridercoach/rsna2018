@@ -191,6 +191,26 @@ Finally, we have to tell Darknet where to look for our data.
 gives more background about this, as well 
 as information about the entire process described in this README.
 
+The central file in this setup process is `darknet/cfg/rsna.data`,
+which contains just 5 lines:
+
+```
+classes= 1
+train  = /home/ubuntu/darknet/data/rsna_train.txt
+valid  = /home/ubuntu/darknet/data/rsna_test.txt
+names = /home/ubuntu/darknet/data/rsna.names
+backup = /home/ubuntu/darknet/backup
+```
+
+Obviously we have classes=1. The "train" and "valid" entries point to 
+the files created by the `make_training_data.py` script in the "rsna" 
+directory.  I copied those files into "darknet/data" but you could 
+probably instead just point these paths to the place where the files 
+already reside. The "names" entry points to a file in "darknet/data" 
+that contains the names of all the classes being detected, one name 
+per line. The "backup" entry is the directory in which Darknet will 
+save its current set of weights after each 100 iterations.
+
 ## Training the Model
 
 Bleep bleep
