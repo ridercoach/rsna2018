@@ -213,7 +213,21 @@ save its current set of weights after each 100 iterations.
 
 ## Training the Model
 
-Bleep bleep
+With everything set up as described above, the command below will start 
+training the network.  Note that we are not training from scratch here, 
+because we are starting with the yolov2.weights file downloaded from 
+the Darknet site.  Rather, we are simply fine-tuning the model to detect 
+the objects **_we_** need to find. (This technique, starting with ML 
+parameters taken from another application, is called "transfer learning".)
+
+Note that when we start with a weights file like yolov2.weights, which 
+indicates internally that training is complete, we must use "-clear 1" on 
+the command line, or Darknet will simply exit because it thinks there is 
+no more training to do.
+
+```
+./darknet detector train cfg/rsna.data cfg/rsna.cfg yolov2.weights -clear 1
+```
 
 ## Generating Predictions
 
