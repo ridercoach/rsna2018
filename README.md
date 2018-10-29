@@ -266,8 +266,8 @@ RSNA provided a separate set of images for testing the algorithm, and
 for which the results are submitted and scored. Just like the training 
 images, these are in DICOM files and must be extracted into JPGs. The 
 script `make_test_data.py` in the "rsna" directory will do this, as well 
-as create the list of filenames for doing batch detection with Darknet (
-which I copied into the "darknet/data" directory.)
+as create the list of filenames for doing batch detection with Darknet (which
+I copied into the "darknet/data" directory.)
 
 Note that we do not have to create the TXT label files as we did for the 
 training images, because we aren't training now (and because there aren't 
@@ -322,9 +322,5 @@ converts a Darknet .cfg/.weights file pair into a Keras/Tensorflow
 model stored in an .h5 file.  I spent a lot of time on this during the 
 contest because I think Keras is pretty nice and I would like to 
 improve my knowledge of it, but I ended up not using it.
-
-
-
-
 
 
