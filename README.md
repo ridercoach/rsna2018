@@ -101,7 +101,8 @@ One big reason I used an AWS p2.xlarge type instance is because it
 has a GPU, which **_greatly_** speeds up the training process. 
 However, in order to take advantage of the GPU, the Darknet framework 
 must be compiled for it. To do this, edit the Makefile in the "darknet" 
-directory and do "make", just as when you initially installed Darknet.
+directory, change the first line from "GPU=0" to "GPU=1", and do "make",
+just as when you initially installed Darknet.
 
 Note that for Darknet to use the GPU, the system must also have CUDA 
 installed. I did not have to do this myself because when I created 
@@ -110,7 +111,34 @@ already have CUDA installed.
 
 #### _Getting the Output Required for the Competition_
 
-ddddd
+Out of the box, the Darknet framework will print to the screen the 
+class type and confidence level for each object it finds, but not 
+the box coords, and we need these for the RSNA submission file.
+
+To fix this, go into the "darknet/src" directory, edit `image.c`, and 
+add the `printf` statement shown in the code fragment below. This is 
+in the `draw_detections` function, just before the `draw_box_width` call, 
+around line 300. Then rebuild Darknet by doing "make".
+
+```
+
+            if(left < 0) left = 0;
+            if(right > im.w-1) right = im.w-1;
+            if(top < 0) top = 0;
+            if(bot > im.h-1) bot = im.h-1;
+
+            printf("L=%d, T=%d, R=%d, B=%d\n", left, top, right, bot); 
+            draw_box_width(im, left, top, right, bot, width, red, green, blue);
+            if (alphabet) {
+                image label = get_label(alphabet, labelstr, (im.h*.03));
+                draw_label(im, top + width, left, label, rgb);
+                free_image(label);
+            }
+```
+
+Obviously you don't have to format your print statement exactly as 
+shown above, but the script that converts the Darknet output to the 
+submission file looks for it to be formatted this way.
 
 ## Prepare Training Data
 
