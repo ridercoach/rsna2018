@@ -70,12 +70,22 @@ because they are huge. You can download the one you want from the
 second page linked above. It generally goes right in the "darknet" 
 directory, not in a subdirectory.
 
-### Customizing the .cfg file
+### Customizing the Darknet Installation
 
 It may be that one of the standard YOLO configurations is perfect for 
 what you are doing, but for this project we have to make some changes.
 
+#### Network Configuration (.cfg file)
+
 First, ...
+
+#### Using the GPU
+
+llll
+
+#### Getting the Output Required for the Competition
+
+ddddd
 
 ## Prepare Training Data
 
