@@ -1,14 +1,16 @@
 # rsna2018  ** under construction **
 Notes, etc, for Kaggle RSNA Pneumonia Detection Challenge
 
-This repository contains a minimal set of files related to the 
-explanation in this README. 
+This repository contains a **_minimal_**
+(only those essential to the discussion) 
+set of files related to the explanation in this README. 
 The "darknet" directory pertains to the training 
 and use of the model, and the "rsna" directory pertains to the pre- and
 post-processing of the data. The Jupyter
 [notebook](https://github.com/ridercoach/rsna2018/blob/master/rsna2018-notes.ipynb)
  in the root of the
-repository illustrates some of the explanation given here.
+repository presents a small sample of x-ray images comparing the 
+predictions of the model to human diagnosis.
 
 I used the Darknet framework with the "regular" version of the YOLOv2
 model. I started with the yolov2.weights file and trained for 12,300 
