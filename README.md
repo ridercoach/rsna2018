@@ -9,7 +9,7 @@ contest data. The Jupyter
 [notebook](https://github.com/ridercoach/rsna2018/blob/master/rsna2018-notes.ipynb)
  in the root of the
 repository presents a small sample of x-ray images, comparing model 
-predictions to human diagnosis.
+predictions to human diagnoses.
 
 I used the Darknet framework with the "regular" version of the YOLOv2
 model. I started with the yolov2.weights file and trained for 12,300 
@@ -56,10 +56,9 @@ so I will not include it here.
 [This page](https://pjreddie.com/darknet/install) gives instructions for 
 installing Darknet on Linux, which is very easy.  Then, 
 [this page](https://pjreddie.com/darknet/yolo) gives instructions for 
-trying out YOLO on the included sample images (or any image you want, 
-as long as it is a JPG.)
+trying out YOLO on the included sample images.
 
-Note that to use YOLO you must specify a neural network configuration 
+Using YOLO requires a neural network configuration 
 (.cfg file) and a **matching** set of trained parameters (.weights file.) 
 "Matching" means that the set of parameters in the .weights file is 
 compatible with the structure of the network in the .cfg file -- the 
@@ -77,16 +76,14 @@ It may be that one of the standard YOLO configurations is perfect for
 what you are doing, but for this project we have to make some changes. 
 Some of these changes are in the .cfg file, and we would like to 
 preserve the generic configuration in case we want to go back to it, 
-so we will copy yolov2.cfg into rsna.cfg and work with rsna.cfg.
+so we will copy yolov2.cfg into rsna.cfg and work with that.
 
 #### _Number of Classes Detected_
 
 The generic YOLOv2 configuration detects 80 different kinds of 
 objects (dog, bicycle, horse, etc), and we need to detect only one 
-(pneumonia). Changing this will reduce the size of the last layer of 
-the network a little, and (I think) save a little memory and training time.
-
-Two changes are needed for this, both near the bottom of rsna.cfg. 
+(pneumonia). So we make two changes in rsna.cfg, both near
+the bottom of the file. 
 First, in the "[region]" section, "classes=80" must be changed to 
 "classes=1". Then, in the section just above that (the last "[convolutional]" 
 layer of the network), "filters=425" must be changed to "filters=30".
@@ -111,7 +108,7 @@ just as when you initially installed Darknet.
 Note that for Darknet to use the GPU, the system must also have CUDA 
 installed. I did not have to do this myself because when I created 
 the cloud machine I used one of the "Deep Learning" AMIs, which 
-already had CUDA installed.
+already has it.
 
 #### _Producing the Output Required for the Competition_
 
@@ -119,10 +116,10 @@ Out of the box, the Darknet framework will print to the screen the
 class type and confidence level for each object it finds, but not 
 the box coords, and we need these for the RSNA submission file.
 
-To fix this, go into the "darknet/src" directory, edit `image.c`, and 
+To fix this, go into the "darknet/src" directory, edit image.c, and 
 add the `printf` statement shown in the code fragment below. This is 
 in the `draw_detections` function, just before the `draw_box_width` call, 
-around line 300. Then rebuild Darknet by doing "make".
+near line 300. Then rebuild Darknet by doing "make".
 
 ```
 
@@ -162,14 +159,14 @@ To work with Kaggle contest data on your own computer, you will
 need the Kaggle API; [this page](https://github.com/Kaggle/kaggle-api)
 gives instructions for installing and using it.
 
-Once you have the Kaggle API working, the following command would 
+Once you have the Kaggle API working, the command below will 
 download the contest data files to your current directory (assuming 
 that (a) the contest is active, and (b) you have already entered 
 the competition on the Kaggle website and accepted the rules.) Having 
-your own copy of the data is not only convenient in many ways, but, 
-if Kaggle removes access to these files after the contest closes 
+your own copy of the data is not only convenient, but 
+if Kaggle removes access to the files after the contest closes 
 (as seems to have been the case with the RSNA competition), you will 
-still be able to play with them.
+still have them to work with.
 
 ```
 kaggle competitions download rsna-pneumonia-detection-challenge
@@ -187,7 +184,7 @@ extracted from the DICOM files and converted to 3-color JPG files, and
 individual TXT files, and converted from pixels to fractions of image 
 size, with the box location changed from upper-left corner to center.
 
-All of this work (as well as the creation of the input files mentioned 
+All of this work (as well as the creation of the list files mentioned 
 in the next section) is accomplished by the `make_training_data.py` 
 script in the "rsna/data" directory. Note that if you want to use this 
 script, you will probably have to adjust the file paths,
@@ -198,7 +195,7 @@ and you may also want to change the train/test split fraction, etc.
 Finally, we have to tell Darknet where to look for our data. 
 [This page](https://timebutt.github.io/static/how-to-train-yolov2-to-detect-custom-objects/)
 gives more background about this, as well 
-as information about the entire process described in this README.
+as additional information about the entire process described in this README.
 
 The central file in this setup process is `darknet/cfg/rsna.data`,
 which contains just 5 lines:
@@ -212,8 +209,8 @@ backup = /home/ubuntu/darknet/backup
 ```
 
 Obviously we have classes=1. The "train" and "valid" entries point to 
-the files created by the `make_training_data.py` script in the "rsna" 
-directory.  I copied those files into "darknet/data" but you could 
+the list files created by the `make_training_data.py` script in the 
+previous step.  I copied those files into "darknet/data" but you could 
 probably instead just point these paths to the place where the files 
 already reside. The "names" entry points to a file in "darknet/data" 
 that contains the names of all the classes being detected, one name 
@@ -226,8 +223,8 @@ With everything set up as described above, the command below will start
 training the network.  Note that we are not training from scratch here, 
 because we are starting with the yolov2.weights file downloaded from 
 the Darknet site.  Rather, we are simply fine-tuning the model to detect 
-the objects **_we_** need to find. (This technique, starting with ML 
-parameters taken from another application, is called "transfer learning".)
+the objects **_we_** need to find. (This technique of starting with ML 
+parameters taken from another application is called "transfer learning".)
 
 Note that when we start with a weights file like yolov2.weights, which 
 indicates internally that training is complete, we must use "-clear 1" on 
@@ -247,11 +244,11 @@ an example of the training output.
 article and this project. In the article, the author is trying to detect 
 something that has sharp edges, a uniform shape, and 5 colors, and he 
 gets down to an average error of 0.08 with only 300 training images and 
-1000 iterations. In this project, in which we are trying to detect something 
-that is not only almost invisible to the untrained human eye but has only one 
-channel of color information, I trained for 12,300 iterations with 2000 
+1000 iterations. Here we are trying to detect something 
+that is almost invisible to the untrained human eye and has only one 
+channel of color information, and I trained for 12,300 iterations with 2000 
 images and only got down to an error of around 1.5. However, this was 
-still enough to make the model moderately useful.**
+good enough for the model to be moderately successful on the test set.**
 
 You can interrupt the training process at any time by pressing 
 ctrl-C.  The most recent set of saved weights will be in the backup 
@@ -269,13 +266,12 @@ RSNA provided a separate set of images for testing the algorithm, and
 for which the results are submitted and scored. Just like the training 
 images, these are in DICOM files and must be extracted into JPGs. The 
 script `make_test_data.py` in the "rsna" directory will do this, as well 
-as create the list of filenames for doing batch detection with Darknet.
+as create the list of filenames for doing batch detection with Darknet (
+which I copied into the "darknet/data" directory.)
 
 Note that we do not have to create the TXT label files as we did for the 
 training images, because we aren't training now (and because there aren't 
 any labels to convert :)).
-
-As before, I copied the list of filenames into the "darknet/data" directory.
 
 ### Running the Detection
 
