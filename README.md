@@ -106,9 +106,20 @@ Bleep bleep
 
 hahaha
 
-## Prepare Submission
+## Submit Results
 
-heehee
+If you modified image.c as described above and did the batch detection 
+on the test set as shown, then the `parse_darknet_output.py` script in the 
+darknet directory of the repository should convert the batch output 
+to a correct file for submission for the RSNA contest.  It's good to 
+use a descriptive name for the submission file.
+
+Then the command shown below will submit your file via the Kaggle API 
+and your score will be visible almost immediately on the Kaggle website.
+
+```
+kaggle competitions submit rsna-pneumonia-detection-challenge -f rsna-ridercoach-sub02.csv
+```
 
 ## Ideas for Future Work
 
