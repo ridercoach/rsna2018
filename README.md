@@ -26,8 +26,8 @@ of information available. However, in my opinion, the best initial
 introduction is probably [this page](https://pjreddie.com/darknet/yolo) 
 from Joseph Redmon, who is one of the creators of YOLO.
 
-I worked in Linux, but I think most of what is discussed here could be 
-done in Windows too.  In particular, 
+I did this project on Linux, but I think most of what is discussed
+here could be done in Windows too.  In particular, 
 [this page](https://github.com/AlexeyAB/darknet) by AlexeyAB has a wealth 
 of Darknet/YOLO how-to information for both Windows and Linux.
 
