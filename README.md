@@ -97,6 +97,9 @@ into some of the details about how YOLO works, which is really
 interesting but probably not something to include in this procedure 
 document.
 
+(The number of classes being detected is also referenced in the 
+rsna.data file mentioned below under "Setting Up Input Files")
+
 #### _Using the GPU_
 
 One big reason I used an AWS p2.xlarge type instance is because it 
