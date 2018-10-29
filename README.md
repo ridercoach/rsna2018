@@ -8,7 +8,8 @@ and use of the model, and the "rsna" directory to the
 contest data. The Jupyter
 [notebook](https://github.com/ridercoach/rsna2018/blob/master/rsna2018-notes.ipynb)
  in the root of the
-repository presents a small sample of x-ray images.
+repository presents a small sample of x-ray images, comparing model 
+predictions to human diagnosis.
 
 I used the Darknet framework with the "regular" version of the YOLOv2
 model. I started with the yolov2.weights file and trained for 12,300 
@@ -33,10 +34,10 @@ of Darknet/YOLO how-to information for both Windows and Linux.
 
 [Exploratory Data Analysis (EDA)](#exploratory-data-analysis)   
 [Setting Up the Model](#setting-up-the-model)   
-[Prepare Training Data](#prepare-training-data)   
-[Train the Model](#train-the-model)   
-[Generate Predictions](#generate-predictions)   
-[Prepare Submission](#prepare-submission)   
+[Preparing Training Data](#preparing-training-data)   
+[Training the Model](#training-the-model)   
+[Generating Predictions](#generating-predictions)   
+[Submitting Results](#submitting-results)   
 [Ideas for Future Work](#ideas-for-future-work)   
 
 ## Exploratory Data Analysis
