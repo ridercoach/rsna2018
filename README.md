@@ -85,9 +85,9 @@ objects (dog, bicycle, horse, etc), and we need to detect only one
 (pneumonia). Changing this will reduce the size of the last layer of 
 the network a little, and (I think) save a little memory and training time.
 
-Two change are needed for this, both near the bottom of the .cfg file. 
+Two change are needed for this, both near the bottom of rsna.cfg. 
 First, in the "[region]" section, "classes=80" must be changed to 
-"classes=1". Then, in the section just above (the last "[convolutional]" 
+"classes=1". Then, in the section just above that (the last "[convolutional]" 
 layer of the network), "filters=425" must be changed to "filters=30".
 
 Understanding this "filters" change gets 
@@ -95,11 +95,20 @@ into some of the details about how YOLO works, which is really
 interesting but probably not something to include in this procedure 
 document.
 
-#### Using the GPU
+#### _Using the GPU_
 
-llll
+One big reason I used an AWS p2.xlarge type instance is because it 
+has a GPU, which **_greatly_** speeds up the training process. 
+However, in order to take advantage of the GPU, the Darknet framework 
+must be compiled for it. To do this, edit the Makefile in the "darknet" 
+directory and do "make", just as when you initially installed Darknet.
 
-#### Getting the Output Required for the Competition
+Note that for Darknet to use the GPU, the system must also have CUDA 
+installed. I did not have to do this myself because when I created 
+the cloud machine I used one of the "Deep Learning" AMIs, which 
+already have CUDA installed.
+
+#### _Getting the Output Required for the Competition_
 
 ddddd
 
