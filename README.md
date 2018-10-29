@@ -73,11 +73,27 @@ directory, not in a subdirectory.
 ### Customizing the Darknet Installation
 
 It may be that one of the standard YOLO configurations is perfect for 
-what you are doing, but for this project we have to make some changes.
+what you are doing, but for this project we have to make some changes. 
+Some of these changes are in the .cfg file, and we would like to 
+preserve the generic configuration in case we want to go back to it, 
+so we will copy yolov2.cfg into rsna.cfg and work with rsna.cfg.
 
-#### Network Configuration (.cfg file)
+#### _Number of Classes Detected_
 
-First, ...
+The generic YOLOv2 configuration detects 80 different kinds of 
+objects (dog, bicycle, horse, etc), and we need to detect only one 
+(pneumonia). Changing this will reduce the size of the last layer of 
+the network a little, and (I think) save a little memory and training time.
+
+Two change are needed for this, both near the bottom of the .cfg file. 
+First, in the "[region]" section, "classes=80" must be changed to 
+"classes=1". Then, in the section just above (the last "[convolutional]" 
+layer of the network), "filters=425" must be changed to "filters=30".
+
+Understanding this "filters" change gets 
+into some of the details about how YOLO works, which is really 
+interesting but probably not something to include in this procedure 
+document.
 
 #### Using the GPU
 
