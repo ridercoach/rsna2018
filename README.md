@@ -145,11 +145,12 @@ Obviously you don't have to format your print statement exactly as
 shown above, but the script that converts the Darknet output to the 
 submission file looks for it to be formatted this way.
 
-#### Batch Size and Subdivisions
+#### _Batch Size and Subdivisions_
 
 Two other parameters you should be aware of, in rsna.cfg near the top of the 
-file, are "batch" and "subdivisions". The values often used for these are 
-64 and 8, respectively (especially if you have at least one GPU), but when 
+file, are "batch" and "subdivisions". The values often used for these
+(especially if you have at least one GPU) are 
+64 and 8, respectively, but when 
 you first start to try training the network, you might want to set them 
 both to 1 (as you can see in the commented lines in the file), to lessen 
 the chances of running up against system limitations.
@@ -243,7 +244,7 @@ screen the average prediction error after each iteration, and this number
 should slowly come down. The article linked in the previous section shows 
 an example of the training output.
 
-It is interesting to note the difference in training output between the 
+**It is interesting to note the difference in training performance between the 
 article and this project. In the article, the author is trying to detect 
 something that has sharp edges, a uniform shape, and 5 colors, and he 
 gets down to an average error of 0.08 with only 300 training images and 
@@ -251,7 +252,7 @@ gets down to an average error of 0.08 with only 300 training images and
 that is not only almost invisible to the untrained eye but has only one 
 channel of color information, I trained for 12,300 iterations with 2000 
 images and only got down to an error of around 1.5. However, this was 
-still enough to make the model moderately useful.
+still enough to make the model moderately useful.**
 
 You can interrupt the training process at any time by pressing 
 ctrl-C.  The most recent set of saved weights will be in the backup 
