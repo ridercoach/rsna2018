@@ -140,9 +140,9 @@ Obviously you don't have to format your print statement exactly as
 shown above, but the script that converts the Darknet output to the 
 submission file looks for it to be formatted this way.
 
-## Prepare Training Data
+## Preparing Training Data
 
-### Downloading the Training Data
+### Downloading the Contest Data
 
 To work with Kaggle contest data on your own computer, you will 
 need the Kaggle API; [this page](https://github.com/Kaggle/kaggle-api)
@@ -151,25 +151,47 @@ gives instructions for installing and using it.
 Once you have the Kaggle API working, the following command would 
 download the contest data files to your current directory (assuming 
 that (a) the contest is active, and (b) you have already entered 
-the competition on the Kaggle website and accepted the rules.)
+the competition on the Kaggle website and accepted the rules.) Having 
+your own copy of the data is not only convenient in many ways, but, 
+if Kaggle removes access to these files after the contest closes 
+(as seems to have been the case with the RSNA competition), you will 
+still be able to play with them.
 
 ```
 kaggle competitions download rsna-pneumonia-detection-challenge
 ```
 
-### Converting Training Data to YOLO Format
+After downloading the data, you will need to unzip any archives, and 
+you may want to organize things into some helpful directory structure.
 
-blah blah blah
+### Adjusting Data Format
 
-## Train the Model
+In order to prepare the RSNA data for ingestion by Darknet/YOLO, two 
+main tasks must be accomplished: (1) the grayscale x-ray images must be 
+extracted from the DICOM files and converted to 3-color JPG files, and 
+(2) the ground truth box info in the CSV file must be extracted into 
+individual TXT files, and converted from pixels to fractions of image 
+size, with the box location changed from upper-left corner to center.
+
+All of this work (as well as the creation of the input files mentioned 
+in the next section) is accomplished by the `make_training_data.py` 
+script in the "rsna/data" directory. Note that if you want to use this 
+script, you will have to adjust the file paths, and maybe also the 
+train/test split fraction, etc.
+
+### Setting Up Input Files
+
+blah
+
+## Training the Model
 
 Bleep bleep
 
-## Generate Predictions
+## Generating Predictions
 
 hahaha
 
-## Submit Results
+## Submitting Results
 
 If you modified image.c as described above and did the batch detection 
 on the test set as shown, then the `parse_darknet_output.py` script in the 
